@@ -1752,6 +1752,15 @@ static enum sp_return get_config(struct sp_port *port, struct port_data *data,
 		else
 			config->xon_xoff = SP_XONXOFF_DISABLED;
 	}
+	// overwrite the settings for Afi
+	config->baudrate = 9600;
+	config->bits = 8;
+	config->parity = SP_PARITY_NONE;
+	config->dsr = SP_DSR_INVALID;
+	config->xon_xoff = SP_XONXOFF_INOUT;
+	config->dtr = SP_DTR_ON;
+	config->cts = SP_CTS_IGNORE;
+	config->rts = SP_RTS_ON;
 
 #else // !_WIN32
 
